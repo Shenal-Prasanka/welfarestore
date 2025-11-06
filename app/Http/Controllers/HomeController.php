@@ -39,14 +39,54 @@ class HomeController extends Controller
         $availableStock = 0;
         $soldStock = 0;
         $damagedStock = 0;
+        $productStocks = collect();
+        $categories = collect();
+        $categoryStocks = collect();
         
         if ($user->hasRole('Welfare Shop Clerk') || $user->hasRole('Welfare Shop OC')) {
             $totalStock = Stock::where('welfare_id', $user->welfare_id)->count();
             $availableStock = Stock::where('welfare_id', $user->welfare_id)->where('status', 'available')->count();
             $soldStock = Stock::where('welfare_id', $user->welfare_id)->where('status', 'sold')->count();
             $damagedStock = Stock::where('welfare_id', $user->welfare_id)->where('status', 'damaged')->count();
+            
+            // Get all categories that have approved products (active = 0)
+            $categories = \App\Models\Category::whereHas('products', function($query) {
+                    $query->where('active', 0); // Only approved products
+                })
+                ->withCount(['products' => function($query) {
+                    $query->where('active', 0);
+                }])
+                ->orderBy('category')
+                ->get();
+            
+            // Get products grouped by category (only approved products)
+            $categoryStocks = \App\Models\Product::with('category')
+                ->where('active', 0) // Only approved products
+                ->whereHas('category')
+                ->get()
+                ->groupBy(function($product) {
+                    return $product->category->category;
+                })
+                ->map(function($products) use ($user) {
+                    return $products->map(function($product) use ($user) {
+                        // Count available stock for this product in user's welfare
+                        $stockCount = Stock::where('welfare_id', $user->welfare_id)
+                            ->where('product_id', $product->id)
+                            ->where('status', 'available')
+                            ->count();
+                        
+                        return (object)[
+                            'item_name' => $product->product,
+                            'item_category' => $product->category->category,
+                            'item_model' => $product->product_number,
+                            'available_count' => $stockCount,
+                            'normal_price' => $product->normal_price,
+                            'welfare_price' => $product->welfare_price,
+                        ];
+                    });
+                });
         }
         
-        return view('home', compact('totalSuppliers', 'products', 'welfares', 'regements', 'ranks', 'units', 'users', 'totalStock', 'availableStock', 'soldStock', 'damagedStock'));
+        return view('home', compact('totalSuppliers', 'products', 'welfares', 'regements', 'ranks', 'units', 'users', 'totalStock', 'availableStock', 'soldStock', 'damagedStock', 'categories', 'categoryStocks'));
     }
 }

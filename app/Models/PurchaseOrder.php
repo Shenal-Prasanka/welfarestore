@@ -64,4 +64,9 @@ class PurchaseOrder extends Model
     {
         return $this->belongsTo(Supply::class, 'supply_id');
     }
+
+    public function stocks(): HasMany
+    {
+        return $this->hasMany(Stock::class, 'purchase_order_id');
+    }
 }

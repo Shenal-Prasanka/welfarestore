@@ -18,16 +18,22 @@
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 
     <style>
+        /* Base Layout - No Scrolling */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
         body {
             font-family: 'Source Sans Pro', sans-serif;
             background-size: cover;
-            height: 100vh;
-            margin: 0;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
+            max-height: 100vh;
         }
-
 
         .oswald-font {
             font-family: 'Oswald', sans-serif !important;
@@ -38,31 +44,37 @@
             font-weight: 600;
             color: #b91c1c;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            padding: 20px 0 10px 0;
+            margin: 0;
         }
 
         .welcome-row {
-            flex: 1;
+            flex: 1 1 auto;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
             width: 100%;
             padding: 20px;
-            gap: 200px;
+            gap: 100px;
+            overflow: hidden;
+            min-height: 0;
         }
 
         .welcome-row img {
-            width: 600px;
-            height: 600px;
+            width: 400px;
+            height: 400px;
             object-fit: contain;
+            flex-shrink: 0;
         }
-
 
         .welcome-form {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 10px;
+            flex-shrink: 0;
         }
 
         .login-box {
@@ -77,12 +89,13 @@
 
         footer.main-footer {
             background-color: #1f2937 !important;
-            font-size: 16px;
+            font-size: 14px;
             color: white;
-            padding: 10px 0;
+            padding: 8px 0;
             text-align: center;
             margin-left: 0 !important;
             width: 100%;
+            flex-shrink: 0;
         }
 
         /* Form container */
@@ -197,16 +210,162 @@
             font-size: 14px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 991.98px) {
+        /* Laptop/PC Specific Responsive Design */
+        
+        /* Standard Laptop (1366x768) */
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            .welcome-title {
+                font-size: 36px;
+                padding: 15px 0 8px 0;
+            }
+            
+            .welcome-row {
+                padding: 15px;
+                gap: 60px;
+            }
+            
+            .welcome-row img {
+                width: 320px;
+                height: 320px;
+            }
+            
+            .login-box {
+                max-width: 340px;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            footer.main-footer {
+                font-size: 13px;
+                padding: 6px 0;
+            }
+        }
+        
+        /* Large Desktop/PC (1920x1080 and above) */
+        @media (min-width: 1441px) {
+            .welcome-title {
+                font-size: 42px;
+                padding: 18px 0 10px 0;
+            }
+            
+            .welcome-row {
+                padding: 20px;
+                gap: 120px;
+            }
+            
+            .welcome-row img {
+                width: 450px;
+                height: 450px;
+            }
+            
+            .login-box {
+                max-width: 400px;
+            }
+            
+            footer.main-footer {
+                font-size: 15px;
+                padding: 10px 0;
+            }
+        }
+        
+        /* Ultra-wide monitors */
+        @media (min-width: 2560px) {
+            .welcome-title {
+                font-size: 52px;
+            }
+            
+            .welcome-row {
+                gap: 200px;
+            }
+            
+            .welcome-row img {
+                width: 550px;
+                height: 550px;
+            }
+            
+            .login-box {
+                max-width: 450px;
+            }
+        }
+        
+        /* Specific fix for common laptop resolution */
+        @media (width: 1366px) and (height: 768px) {
+            .welcome-title {
+                font-size: 32px;
+                padding: 12px 0 6px 0;
+            }
+            
+            .welcome-row {
+                padding: 10px;
+                gap: 40px;
+            }
+            
+            .welcome-row img {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .login-box {
+                max-width: 320px;
+            }
+            
+            .card-body {
+                padding: 15px;
+            }
+            
+            footer.main-footer {
+                font-size: 12px;
+                padding: 5px 0;
+            }
+        }
+        
+        /* Tablet and Mobile */
+        @media (max-width: 1024px) {
+            body {
+                overflow-y: auto;
+                max-height: none;
+            }
+            
             .welcome-row {
                 flex-direction: column;
                 text-align: center;
+                overflow-y: auto;
+                padding: 15px;
+            }
+            
+            .welcome-row img {
+                width: 250px;
+                height: 250px;
             }
 
             .welcome-form {
                 padding: 0;
-                margin-top: 20px;
+                margin-top: 15px;
+            }
+            
+            .welcome-title {
+                font-size: 28px;
+                padding: 15px 0;
+            }
+        }
+        
+        /* Small Mobile */
+        @media (max-width: 576px) {
+            .welcome-title {
+                font-size: 24px;
+                padding: 10px 0;
+            }
+            
+            .welcome-row img {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .login-box {
+                max-width: 100%;
+                padding: 0 15px;
             }
         }
     </style>

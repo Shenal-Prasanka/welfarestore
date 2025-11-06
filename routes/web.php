@@ -219,3 +219,21 @@ Route::post('/loans/{id}/reject', [LoanController::class, 'reject'])->name('loan
 // Loan Interest routes
 Route::resource('loaninterests', \App\Http\Controllers\LoanInterestController::class);
 
+// Report routes for Unit Clerk and Welfare Shop Clerk
+Route::prefix('reports')->name('reports.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\ReportController::class, 'index'])->name('index');
+    
+    // Unit Clerk Reports
+    Route::get('/item-loans', [\App\Http\Controllers\ReportController::class, 'itemLoanApplications'])->name('item-loans');
+    Route::get('/approved-rejected', [\App\Http\Controllers\ReportController::class, 'approvedRejectedLoans'])->name('approved-rejected');
+    Route::get('/membership', [\App\Http\Controllers\ReportController::class, 'membershipDetails'])->name('membership');
+    Route::get('/guarantors', [\App\Http\Controllers\ReportController::class, 'guarantorDetails'])->name('guarantors');
+    
+    // Welfare Shop Clerk Reports
+    Route::get('/welfare-guarantors', [\App\Http\Controllers\ReportController::class, 'welfareGuarantorDetails'])->name('welfare-guarantors');
+    Route::get('/welfare-membership', [\App\Http\Controllers\ReportController::class, 'welfareMembershipDetails'])->name('welfare-membership');
+    Route::get('/welfare-loans', [\App\Http\Controllers\ReportController::class, 'welfareLoanDetails'])->name('welfare-loans');
+    Route::get('/welfare-pricelist', [\App\Http\Controllers\ReportController::class, 'welfarePriceList'])->name('welfare-pricelist');
+    Route::get('/loans-regiment-wise', [\App\Http\Controllers\ReportController::class, 'loanDetailsRegimentWise'])->name('loans-regiment-wise');
+});
+

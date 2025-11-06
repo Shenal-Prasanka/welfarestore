@@ -170,6 +170,17 @@
                 </li>
             @endrole
             
+            @role('Unit Clerk||Unit OC||Welfare Shop Clerk||Welfare Shop OC')
+                <li class="nav-item">
+                    <a href="{{ route('reports.index') }}" class="nav-link">
+                        <i class="fas fa-chart-bar nav-icon text-info mr-2"></i>
+                        <p>
+                            {{ __('Reports') }}
+                        </p>
+                    </a>
+                </li>
+            @endrole
+            
             @role('Loan Clerk||Loan OC||Account SO||Staff Officer')
                 <li class="nav-item">
                     <a href="{{ route('loans.index') }}" class="nav-link">

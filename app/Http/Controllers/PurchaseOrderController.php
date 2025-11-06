@@ -25,20 +25,41 @@ class PurchaseOrderController extends Controller
     {
         $user = Auth::user();
         
-        // Welfare Shop Clerk and Welfare Shop OC see only their own welfare's orders
-        if ($user->hasRole('Welfare Shop Clerk') || $user->hasRole('Welfare Shop OC')) {
-            $orders = PurchaseOrder::with('welfare')
-                ->withCount('items')
-                ->where('welfare_id', $user->welfare_id)
-                ->latest()
-                ->paginate(15);
+        $query = PurchaseOrder::with('welfare')->withCount('items');
+        
+        // Filter based on role and approval level
+        if ($user->hasRole('Welfare Shop Clerk')) {
+            // See only their welfare's orders at level 0 (awaiting their approval) or rejected
+            // Also show fully approved (level 4) orders that don't have stock added yet
+            $query->where('welfare_id', $user->welfare_id)
+                  ->where(function($q) {
+                      $q->where('approval_level', 0)
+                        ->orWhere('status', 'rejected')
+                        ->orWhere(function($subQ) {
+                            // Show level 4 only if stock hasn't been added
+                            $subQ->where('approval_level', 4)
+                                 ->whereDoesntHave('stocks');
+                        });
+                  });
+        } elseif ($user->hasRole('Welfare Shop OC')) {
+            // See only their welfare's orders at level 1 (awaiting their approval)
+            $query->where('welfare_id', $user->welfare_id)
+                  ->where('approval_level', 1)
+                  ->where('status', 'pending');
+        } elseif ($user->hasRole('Shop Coord Clerk')) {
+            // See all orders at level 2 (awaiting their approval)
+            $query->where('approval_level', 2)
+                  ->where('status', 'pending');
+        } elseif ($user->hasRole('Shop Coord OC')) {
+            // See all orders at level 3 (awaiting their approval)
+            $query->where('approval_level', 3)
+                  ->where('status', 'pending');
         } else {
-            // Shop Coord Clerk, Shop Coord OC, Admin see all orders
-            $orders = PurchaseOrder::with('welfare')
-                ->withCount('items')
-                ->latest()
-                ->paginate(15);
+            // Admin sees all orders
+            // No filter applied
         }
+        
+        $orders = $query->latest()->paginate(15);
         
         return view('purchaseorders.index', compact('orders'));
     }
@@ -351,10 +372,35 @@ class PurchaseOrderController extends Controller
         ->select('id', 'po_number', 'date', 'welfare_id', 'status', 'approval_level')
         ->withCount('items');
     
-    // Welfare Shop Clerk and Welfare Shop OC see only their own welfare's orders
-    if ($user->hasRole('Welfare Shop Clerk') || $user->hasRole('Welfare Shop OC')) {
-        $query->where('welfare_id', $user->welfare_id);
+    // Filter based on role and approval level
+    if ($user->hasRole('Welfare Shop Clerk')) {
+        // See only their welfare's orders at level 0 (awaiting their approval) or rejected
+        // Also show fully approved (level 4) orders that don't have stock added yet
+        $query->where('welfare_id', $user->welfare_id)
+              ->where(function($q) {
+                  $q->where('approval_level', 0)
+                    ->orWhere('status', 'rejected')
+                    ->orWhere(function($subQ) {
+                        // Show level 4 only if stock hasn't been added
+                        $subQ->where('approval_level', 4)
+                             ->whereDoesntHave('stocks');
+                    });
+              });
+    } elseif ($user->hasRole('Welfare Shop OC')) {
+        // See only their welfare's orders at level 1 (awaiting their approval)
+        $query->where('welfare_id', $user->welfare_id)
+              ->where('approval_level', 1)
+              ->where('status', 'pending');
+    } elseif ($user->hasRole('Shop Coord Clerk')) {
+        // See all orders at level 2 (awaiting their approval)
+        $query->where('approval_level', 2)
+              ->where('status', 'pending');
+    } elseif ($user->hasRole('Shop Coord OC')) {
+        // See all orders at level 3 (awaiting their approval)
+        $query->where('approval_level', 3)
+              ->where('status', 'pending');
     }
+    // Admin sees all orders (no filter)
     
     $orders = $query->get();
 
