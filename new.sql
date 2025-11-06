@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2025 at 09:28 AM
+-- Generation Time: Nov 06, 2025 at 10:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -118,7 +118,9 @@ CREATE TABLE `categorys` (
 
 INSERT INTO `categorys` (`id`, `category`, `description`, `active`, `is_deleted`, `created_at`, `updated_at`) VALUES
 (1, 'Laptops', 'Electronic Items', 1, 0, '2025-11-05 06:51:18', '2025-11-05 06:51:18'),
-(2, 'Mobiles', 'Electronic Items', 1, 0, '2025-11-05 06:51:38', '2025-11-05 06:51:38');
+(2, 'Mobiles', 'Electronic Items', 1, 0, '2025-11-05 06:51:38', '2025-11-05 06:51:38'),
+(3, 'Televisions', 'Electronic Items', 1, 0, '2025-11-05 15:12:18', '2025-11-05 15:12:18'),
+(4, 'Table Fans', 'Electrical Items', 1, 0, '2025-11-05 15:13:06', '2025-11-05 15:13:06');
 
 -- --------------------------------------------------------
 
@@ -217,7 +219,8 @@ CREATE TABLE `item_loans` (
 --
 
 INSERT INTO `item_loans` (`id`, `application_id`, `enlisted_no`, `regiment_no`, `rank`, `name`, `nic`, `army_id`, `office_address`, `previous_unit`, `welfare_membership`, `welfare_membership_date`, `bill_no`, `bill_date`, `enlisted_date`, `retire_date`, `required_welfare_item_category`, `welfare_id`, `item_name`, `item_type`, `model_no`, `mobile_no`, `land_no`, `paying_installments`, `deduct_time_period`, `consent_agreement`, `soldier_statement`, `guarantor1_enlisted_no`, `guarantor1_regiment_no`, `guarantor1_rank`, `guarantor1_name`, `guarantor1_nic`, `guarantor1_army_id`, `guarantor1_office_address`, `guarantor1_previous_unit`, `guarantor1_welfare_membership`, `guarantor1_enlisted_date`, `guarantor1_retire_date`, `guarantor2_enlisted_no`, `guarantor2_regiment_no`, `guarantor2_rank`, `guarantor2_name`, `guarantor2_nic`, `guarantor2_army_id`, `guarantor2_office_address`, `guarantor2_previous_unit`, `guarantor2_welfare_membership`, `guarantor2_enlisted_date`, `guarantor2_retire_date`, `unit_id`, `created_by`, `status`, `approved_by`, `approved_at`, `shop_coord_approved_by`, `shop_coord_approved_at`, `loan_checked`, `membership_checked`, `shop_coord_oc_approved_by`, `shop_coord_oc_approved_at`, `final_approved_by`, `final_approved_at`, `rejected_by`, `rejection_reason`, `rejected_at`, `created_at`, `updated_at`) VALUES
-(1, 'ILA-00001', '155151', 'R021', '2nd Lieutenant', 'shenal', '123456000321', 'ADF12547', 'Batharamulla', 'CR1', 'Yes', '2025-11-05', '1556151', '2025-11-05', '2025-11-05', NULL, 'Laptops', 1, 'Acer-i3-4353U', 'Electronic', '4353U', '0712518433', '0332618433', 'No', '36', 1, 'soldier_statements/mefuIQ6ha6UiBCIT4UruBHyG8Jyzt7lUdG2rddiJ.pdf', 'aq4551515', 'R515141', '2nd Lieutenant', 'janith', '11551515151v', '1215848', 'Batharamulla', 'CR1', 'Yes', '2025-11-05', NULL, 'E503', '551151', '2nd Lieutenant', 'bimal', '151945581878v', '87842828', 'Batharamulla', 'CR1', 'Yes', '2025-11-05', NULL, 1, 5, 'approved', 3, '2025-11-05 07:59:48', 6, '2025-11-05 08:00:21', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-11-05 07:59:18', '2025-11-05 08:18:31');
+(1, 'ILA-00001', '155151', 'R021', '2nd Lieutenant', 'shenal', '123456000321', 'ADF12547', 'Batharamulla', 'CR1', 'Yes', '2025-11-05', '1556151', '2025-11-05', '2025-11-05', NULL, 'Laptops', 1, 'Acer-i3-4353U', 'Electronic', '4353U', '0712518433', '0332618433', 'No', '36', 1, 'soldier_statements/mefuIQ6ha6UiBCIT4UruBHyG8Jyzt7lUdG2rddiJ.pdf', 'aq4551515', 'R515141', '2nd Lieutenant', 'janith', '11551515151v', '1215848', 'Batharamulla', 'CR1', 'Yes', '2025-11-05', NULL, 'E503', '551151', '2nd Lieutenant', 'bimal', '151945581878v', '87842828', 'Batharamulla', 'CR1', 'Yes', '2025-11-05', NULL, 1, 5, 'approved', 3, '2025-11-05 07:59:48', 6, '2025-11-05 08:00:21', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-11-05 07:59:18', '2025-11-05 08:18:31'),
+(2, 'ILA-00002', '155151', 'R0218', '2nd Lieutenant', 'Bimal', '123456000321', 'ADF12547', 'Batharamulla', 'CR1', 'Yes', '2025-10-27', '1556151', '2025-10-28', '2025-10-28', NULL, 'Laptops', 1, 'Acer-i3-4353U', 'Electronic', '4353U', '0712518433', '0332618433', 'No', '36', 1, 'soldier_statements/a0pz6zS5K80XIp4M2DqyvJXlHWBlP3YEOjWa3rb6.pdf', 'aq4551515', 'R515141', '2nd Lieutenant', 'janith', '11551515151v', '1215848', 'Batharamulla', 'CR1', 'No', '2025-10-27', NULL, 'as5a55', 'R56565', '2nd Lieutenant', 'Aravinda', '151945581878v', '87842828', 'Batharamulla', 'CR1', 'Yes', '2025-10-27', NULL, 1, 5, 'shop_coord_oc_approved', 3, '2025-11-06 03:09:58', 6, '2025-11-06 03:10:52', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-11-06 03:09:28', '2025-11-06 03:11:22');
 
 -- --------------------------------------------------------
 
@@ -418,7 +421,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (22, '2025_11_02_225042_create_approved_loans_table', 1),
 (23, '2025_11_03_005438_create_rejected_loans_table', 1),
 (24, '2025_11_04_213754_create_person_issueds_table', 1),
-(25, '2025_11_05_131031_add_approval_level_and_date_to_purchase_orders_table', 2);
+(25, '2025_11_05_131031_add_approval_level_and_date_to_purchase_orders_table', 2),
+(26, '2025_11_05_214904_add_coordinates_to_welfares_table', 3);
 
 -- --------------------------------------------------------
 
@@ -634,7 +638,13 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `product_number`, `product`, `category_id`, `normal_price`, `vat`, `tax`, `welfare_price`, `active`, `is_deleted`, `created_at`, `updated_at`) VALUES
 (1, 'PT-0001', 'Acer-i3-4353U', 1, 150000.00, 8.00, 6.00, 171000.00, 0, 0, '2025-11-05 06:54:48', '2025-11-05 06:55:52'),
-(2, 'PT-0002', 'Redmi-Note-10', 2, 85000.00, 6.00, 6.00, 95200.00, 0, 0, '2025-11-05 06:55:09', '2025-11-05 06:55:55');
+(2, 'PT-0002', 'Redmi-Note-10', 2, 85000.00, 6.00, 6.00, 95200.00, 0, 0, '2025-11-05 06:55:09', '2025-11-05 06:55:55'),
+(3, 'PT-0003', 'Dell-i3-U560', 1, 50000.00, 5.00, 5.00, 55000.00, 0, 0, '2025-11-05 14:54:15', '2025-11-05 14:55:47'),
+(4, 'PT-0004', 'Apple i15-U456', 2, 200000.00, 5.00, 5.00, 220000.00, 0, 0, '2025-11-05 14:55:21', '2025-11-05 14:55:50'),
+(5, 'PT-0005', 'Abans-K-201', 3, 50000.00, 5.00, 5.00, 55000.00, 0, 0, '2025-11-05 15:14:22', '2025-11-05 15:18:33'),
+(6, 'PT-0006', 'Singer-L-562', 3, 75000.00, 5.00, 5.00, 82500.00, 0, 0, '2025-11-05 15:14:57', '2025-11-05 15:18:36'),
+(7, 'PT-0007', 'SD-U125', 4, 25000.00, 5.00, 5.00, 27500.00, 0, 0, '2025-11-05 15:15:56', '2025-11-05 15:18:39'),
+(8, 'PT-0008', 'DF-K-8965', 4, 30000.00, 5.00, 5.00, 33000.00, 0, 0, '2025-11-05 15:16:22', '2025-11-05 15:18:42');
 
 -- --------------------------------------------------------
 
@@ -662,7 +672,9 @@ CREATE TABLE `purchase_orders` (
 --
 
 INSERT INTO `purchase_orders` (`id`, `po_number`, `date`, `welfare_id`, `created_by`, `approved_by`, `rejected_by`, `status`, `approval_level`, `rejection_reason`, `created_at`, `updated_at`) VALUES
-(2, 'PO-20251105-001', '2025-11-05', 1, 13, 9, NULL, 'approved', 4, NULL, '2025-11-05 07:18:09', '2025-11-05 07:46:25');
+(2, 'PO-20251105-001', '2025-11-05', 1, 13, 9, NULL, 'approved', 4, NULL, '2025-11-05 07:18:09', '2025-11-05 07:46:25'),
+(3, 'PO-20251105-002', '2025-11-05', 2, 12, 9, NULL, 'approved', 4, NULL, '2025-11-05 14:00:06', '2025-11-05 14:02:15'),
+(4, 'PO-20251105-003', '2025-11-05', 2, 12, 9, NULL, 'approved', 4, NULL, '2025-11-05 14:04:50', '2025-11-05 14:24:27');
 
 -- --------------------------------------------------------
 
@@ -689,7 +701,9 @@ CREATE TABLE `purchase_order_items` (
 --
 
 INSERT INTO `purchase_order_items` (`id`, `purchase_order_id`, `item_name`, `model_no`, `qty`, `welfare_price`, `welfare_net_value`, `mrp`, `mrp_net_value`, `created_at`, `updated_at`) VALUES
-(2, 2, 'Acer-i3-4353U', '4553U', 10, 171000.00, 1710000.00, 30000.00, 300000.00, '2025-11-05 07:18:09', '2025-11-05 07:18:09');
+(2, 2, 'Acer-i3-4353U', '4553U', 10, 171000.00, 1710000.00, 30000.00, 300000.00, '2025-11-05 07:18:09', '2025-11-05 07:18:09'),
+(3, 3, 'Redmi-Note-10', 'E1235', 5, 95200.00, 476000.00, 50000.00, 250000.00, '2025-11-05 14:00:06', '2025-11-05 14:00:06'),
+(4, 4, 'Acer-i3-4353U', '4353U', 5, 171000.00, 855000.00, 20000.00, 100000.00, '2025-11-05 14:04:50', '2025-11-05 14:04:50');
 
 -- --------------------------------------------------------
 
@@ -965,7 +979,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('CWZQxR4gqIMDij4KLWNB0sWMozVQjBSm4SOsceDh', 13, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZGwycVJidUNzMWx0bHhLQnlNOGFvaUFOM1JHN2RiNGt4TFJJT1hwRSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3Qvd2VsZmFyZS9pdGVtbG9hbnMiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxMztzOjQ6ImF1dGgiO2E6MTp7czoyMToicGFzc3dvcmRfY29uZmlybWVkX2F0IjtpOjE3NjIzMjk2Njg7fX0=', 1762330712);
+('X1ljaXc2COu7O3ZekHznbJRVfr1c8VhkRX7ehdfT', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiM3ZCSHN3akQ3ZEFpMGZrTFNNTGtFWk5DN2VpZUtMaEV1clRyNW9aWSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQ6Imh0dHA6Ly9sb2NhbGhvc3Qvd2VsZmFyZSI7fX0=', 1762409418);
 
 -- --------------------------------------------------------
 
@@ -1005,7 +1019,17 @@ INSERT INTO `stocks` (`id`, `purchase_order_id`, `purchase_order_item_id`, `prod
 (7, 2, 2, 1, 1, 'Acer-i3-4353U', '4553U', 'PT-0001', 'Laptops', 150000.00, 171000.00, 'E;LMWJEIW56484', 'issued', '2025-11-05 07:48:25', '2025-11-05 08:18:31'),
 (8, 2, 2, 1, 1, 'Acer-i3-4353U', '4553U', 'PT-0001', 'Laptops', 150000.00, 171000.00, 'WWIWJ1561513', 'available', '2025-11-05 07:48:25', '2025-11-05 07:48:25'),
 (9, 2, 2, 1, 1, 'Acer-i3-4353U', '4553U', 'PT-0001', 'Laptops', 150000.00, 171000.00, 'JIJSC4845151', 'available', '2025-11-05 07:48:25', '2025-11-05 07:48:25'),
-(10, 2, 2, 1, 1, 'Acer-i3-4353U', '4553U', 'PT-0001', 'Laptops', 150000.00, 171000.00, 'WNJWNUWD5156', 'available', '2025-11-05 07:48:25', '2025-11-05 07:48:25');
+(10, 2, 2, 1, 1, 'Acer-i3-4353U', '4553U', 'PT-0001', 'Laptops', 150000.00, 171000.00, 'WNJWNUWD5156', 'available', '2025-11-05 07:48:25', '2025-11-05 07:48:25'),
+(11, 3, 3, 2, 2, 'Redmi-Note-10', 'E1235', 'PT-0002', 'Mobiles', 85000.00, 95200.00, 'ADS4566', 'available', '2025-11-05 14:03:52', '2025-11-05 14:03:52'),
+(12, 3, 3, 2, 2, 'Redmi-Note-10', 'E1235', 'PT-0002', 'Mobiles', 85000.00, 95200.00, 'WEWE4454', 'available', '2025-11-05 14:03:52', '2025-11-05 14:03:52'),
+(13, 3, 3, 2, 2, 'Redmi-Note-10', 'E1235', 'PT-0002', 'Mobiles', 85000.00, 95200.00, 'CVC45454', 'available', '2025-11-05 14:03:52', '2025-11-05 14:03:52'),
+(14, 3, 3, 2, 2, 'Redmi-Note-10', 'E1235', 'PT-0002', 'Mobiles', 85000.00, 95200.00, 'RERE15545', 'available', '2025-11-05 14:03:52', '2025-11-05 14:03:52'),
+(15, 3, 3, 2, 2, 'Redmi-Note-10', 'E1235', 'PT-0002', 'Mobiles', 85000.00, 95200.00, 'RE545ER45', 'available', '2025-11-05 14:03:52', '2025-11-05 14:03:52'),
+(16, 4, 4, 1, 2, 'Acer-i3-4353U', '4353U', 'PT-0001', 'Laptops', 150000.00, 171000.00, 'SWE125488', 'available', '2025-11-05 14:25:53', '2025-11-05 14:25:53'),
+(17, 4, 4, 1, 2, 'Acer-i3-4353U', '4353U', 'PT-0001', 'Laptops', 150000.00, 171000.00, 'KLJ456128', 'available', '2025-11-05 14:25:53', '2025-11-05 14:25:53'),
+(18, 4, 4, 1, 2, 'Acer-i3-4353U', '4353U', 'PT-0001', 'Laptops', 150000.00, 171000.00, 'HGJ55874', 'available', '2025-11-05 14:25:53', '2025-11-05 14:25:53'),
+(19, 4, 4, 1, 2, 'Acer-i3-4353U', '4353U', 'PT-0001', 'Laptops', 150000.00, 171000.00, 'HJKI5463', 'available', '2025-11-05 14:25:53', '2025-11-05 14:25:53'),
+(20, 4, 4, 1, 2, 'Acer-i3-4353U', '4353U', 'PT-0001', 'Laptops', 150000.00, 171000.00, 'HJK45123', 'available', '2025-11-05 14:25:53', '2025-11-05 14:25:53');
 
 -- --------------------------------------------------------
 
@@ -1128,6 +1152,8 @@ CREATE TABLE `welfares` (
   `welfare_number` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `location` varchar(255) DEFAULT NULL,
+  `latitude` decimal(10,8) DEFAULT NULL,
+  `longitude` decimal(11,8) DEFAULT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `delete` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1138,9 +1164,13 @@ CREATE TABLE `welfares` (
 -- Dumping data for table `welfares`
 --
 
-INSERT INTO `welfares` (`id`, `welfare_number`, `name`, `location`, `active`, `delete`, `created_at`, `updated_at`) VALUES
-(1, 'WT-0001', 'Colombo', '6.935114408572955,79.84473303459077', 0, 0, '2025-11-05 06:53:53', '2025-11-05 06:55:44'),
-(2, 'WT-0002', 'jaffna', '9.668196371875569,80.01475475568063', 0, 0, '2025-11-05 06:54:20', '2025-11-05 06:55:47');
+INSERT INTO `welfares` (`id`, `welfare_number`, `name`, `location`, `latitude`, `longitude`, `active`, `delete`, `created_at`, `updated_at`) VALUES
+(1, 'WT-0001', 'Colombo', '6.935114408572955,79.84473303459077', NULL, NULL, 0, 0, '2025-11-05 06:53:53', '2025-11-05 06:55:44'),
+(2, 'WT-0002', 'jaffna', '9.668196371875569,80.01475475568063', NULL, NULL, 0, 0, '2025-11-05 06:54:20', '2025-11-05 06:55:47'),
+(3, 'WT-0003', 'Gampaha', '7.0863109297747755,79.9929069370672', NULL, NULL, 0, 0, '2025-11-05 15:16:51', '2025-11-05 15:18:17'),
+(4, 'WT-0004', 'Anuradhapura', '8.327821705110896,80.41191076483001', NULL, NULL, 0, 0, '2025-11-05 15:17:14', '2025-11-05 15:18:20'),
+(5, 'WT-0005', 'Galle', '6.043192080339876,80.22057999832423', NULL, NULL, 0, 0, '2025-11-05 15:17:32', '2025-11-05 15:18:23'),
+(6, 'WT-0006', 'Kandy', '7.297223784128496,80.6450190300128', NULL, NULL, 0, 0, '2025-11-05 15:17:52', '2025-11-05 15:18:26');
 
 -- --------------------------------------------------------
 
@@ -1438,7 +1468,7 @@ ALTER TABLE `approved_loans`
 -- AUTO_INCREMENT for table `categorys`
 --
 ALTER TABLE `categorys`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1450,7 +1480,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `item_loans`
 --
 ALTER TABLE `item_loans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -1480,7 +1510,7 @@ ALTER TABLE `memberships`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -1504,19 +1534,19 @@ ALTER TABLE `person_issueds`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `purchase_orders`
 --
 ALTER TABLE `purchase_orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `purchase_order_items`
 --
 ALTER TABLE `purchase_order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ranks`
@@ -1546,7 +1576,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `supplys`
@@ -1570,7 +1600,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `welfares`
 --
 ALTER TABLE `welfares`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `welfare_memberships`
